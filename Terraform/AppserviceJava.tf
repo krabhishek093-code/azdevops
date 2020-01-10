@@ -16,8 +16,8 @@ resource "azurerm_app_service_plan" "javaserviceplan" {
   kind                = "Linux"
   reserved            = true
   sku {
-    tier = "Free"
-    size = "F1"
+    tier = "Basic"
+    size = "B1"
   }
 }
 
@@ -30,7 +30,7 @@ resource "azurerm_app_service" "samplejava" {
   site_config {
     java_container = "JAVA"
     java_container_version ="11"
-    use_32_bit_worker_process = true
+    use_32_bit_worker_process = false
 
   }
 }
