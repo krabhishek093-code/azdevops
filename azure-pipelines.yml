@@ -23,7 +23,7 @@ steps:
 
 - task: CopyFiles@2
   inputs:
-    SourceFolder: '$(outputDirectory)'
+    SourceFolder: '(Build.SourcesDirectory)'
     contents: '**/*.war'
     targetFolder: '$(outputDirectory)/publish'
 
@@ -36,6 +36,5 @@ steps:
     
 - task: PublishBuildArtifacts@1
   inputs:
-    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    PathtoPublish: '$(outputDirectory)/publish'
     ArtifactName: 'Webapp'
-    publishLocation: '$(outputDirectory)/publish'
