@@ -21,19 +21,20 @@ steps:
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
     goals: 'package'
 - task: CopyFiles@2
-  inputs:
-    SourceFolder: '$(Build.SourcesDirectory)'
-    Contents: '**/*.war'
-    TargetFolder: '$(build.artifactstagingdirectory)'
+        inputs:
+          SourceFolder: '$(outputDirectory)'
+          contents: '**/*.war'
+          targetFolder: '$(outputDirectory)/publish'
+
 
 - task: CopyFiles@2
   inputs:
     SourceFolder: '$(Build.SourcesDirectory)/Terraform'
     Contents: '**'
-    TargetFolder: '$(build.artifactstagingdirectory)'
+    TargetFolder: '$(outputDirectory)/publish'
     
 - task: PublishBuildArtifacts@1
   inputs:
     PathtoPublish: '$(Build.ArtifactStagingDirectory)'
     ArtifactName: 'Webapp'
-    publishLocation: 'Container'
+    publishLocation: '$(outputDirectory)/publish'
