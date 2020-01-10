@@ -8,9 +8,9 @@ resource "azurerm_resource_group" "java" {
   location = "WestUS"
 }
 
-resource "azurerm_app_service_plan" "javaserviceplan" {
+resource "azurerm_app_service_plan" "javaserviceplan" :
   name                = "java-appserviceplan"
-  location            = azurerm_resource_group.java.location
+  location            = "${azurerm_resource_group.java.location}
   resource_group_name = "${azurerm_resource_group.java.name}"
   kind                = "Linux"
   reserved            = true
@@ -18,7 +18,7 @@ resource "azurerm_app_service_plan" "javaserviceplan" {
     tier = "Free"
     size = "F1"
   }
-}
+
 
 resource "azurerm_app_service" "samplejava" {
   name                = "samplejava-app-service"
