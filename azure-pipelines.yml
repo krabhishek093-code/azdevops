@@ -22,9 +22,9 @@ steps:
     goals: 'package'
 
 - task: CopyFiles@2
-    inputs:
-      SourceFolder: '$(outputDirectory)'
-      contents: '**/*.war'
+  inputs:
+    SourceFolder: '$(outputDirectory)'
+    contents: '**/*.war'
     targetFolder: '$(outputDirectory)/publish'
 
 
