@@ -25,6 +25,12 @@ steps:
     SourceFolder: '$(Build.SourcesDirectory)'
     Contents: '**/*.war'
     TargetFolder: '$(build.artifactstagingdirectory)'
+
+- task: CopyFiles@2
+  inputs:
+    SourceFolder: '$(Build.SourcesDirectory)/Terraform'
+    Contents: '**'
+    TargetFolder: '$(build.artifactstagingdirectory)'
     
 - task: PublishBuildArtifacts@1
   inputs:
