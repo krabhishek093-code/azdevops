@@ -12,7 +12,7 @@
 <img alt="" src="zippy.png">
 <h3>
 
-This is a Java App deployed by AzureDevops11 on <%out.println(System.getProperty("os.name"));%> at <%= (new java.util.Date()).toLocaleString()%> for ZippyOPS Demo Hello World!!!!!!*****Test.
+This is a Java App deployed by AzureDevopsfinal on <%out.println(System.getProperty("os.name"));%> at <%= (new java.util.Date()).toLocaleString()%> for ZippyOPS Demo Hello World!!!!!!*****Test.
 </h3>
 </center>
 </body>
