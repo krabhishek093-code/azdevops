@@ -10,7 +10,7 @@ resource "azurerm_resource_group" "java" {
 
 resource "azurerm_app_service_plan" "javaserviceplan" {
   name                = "java-appserviceplan"
-  location            = "${azurerm_resource_group.java.location}"
+  location            = azurerm_resource_group.java.location
   resource_group_name = "${azurerm_resource_group.java.name}"
   kind                = "Linux"
   reserved            = true
