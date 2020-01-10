@@ -8,5 +8,28 @@ resource "azurerm_resource_group" "java" {
   location = "WestUS"
 }
 
+resource "azurerm_app_service_plan" "javaserviceplan" {
+  name                = "java-appserviceplan"
+  location            = "${azurerm_resource_group.java.location}"
+  resource_group_name = "${azurerm_resource_group.java.name}"
+  kind                = "Linux"
+  reserved            = true
+  sku {
+    tier = "Free"
+    size = "F1"
+  }
+}
 
+resource "azurerm_app_service" "samplejava" {
+  name                = "samplejava-app-service"
+  location            = "${azurerm_resource_group.java.location}"
+  resource_group_name = "${azurerm_resource_group.java.name}"
+  app_service_plan_id = "${azurerm_app_service_plan.javaserviceplan.id}"
 
+  site_config {
+    java_container = "JAVA"
+    java_container_version ="11"
+    use_32_bit_worker_process = true
+
+  }
+}
