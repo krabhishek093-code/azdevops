@@ -1,5 +1,5 @@
 # This is used to destroy the resources in azure portal which are created from terraform
-# Use here to trigger to destroy ......CHANGE NONE to test
+# Use here to trigger the destroy ......CHANGE NONE to test
 trigger:
 - none
 
