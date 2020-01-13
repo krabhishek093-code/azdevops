@@ -8,7 +8,7 @@
 </head>
 <body>
 <center>
-<h1>This is a ZippyOPS Demo Application!!!</h1>
+<h1>This is a ZippyOPS java_poc_Demo Application!!!</h1>
 <img alt="" src="zippy.png">
 <h3>
 
