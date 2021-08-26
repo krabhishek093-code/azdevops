@@ -8,7 +8,7 @@
 </head>
 <body>
 <center>
-<h1>This is a ZippyOPS Demo Application!!!</h1>
+<h1>GOogle is everywhere</h1>
 <img alt="" src="zippy.png">
 <h3>
 
