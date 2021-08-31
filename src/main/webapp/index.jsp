@@ -4,11 +4,11 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>   Demo application 26-08-2021 </title>
+<title>   Demo application </title>
 </head>
 <body>
 <center>
-<h1>GOogle is everywhere</h1>
+<h1>Zippyops Consultant service LLC 31-AUG-2021</h1>
 <img alt="" src="zippy.png">
 <h3>
 
