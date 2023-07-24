@@ -18,8 +18,8 @@ provider "azurerm" {
 }
 
 resource "azurerm_resource_group" "java" {
-  name     = "javasample"
-  location = "WestUS"
+  name     = "azuretraining"
+  location = "East US"
 }
 
 # Service Plan Creation 
