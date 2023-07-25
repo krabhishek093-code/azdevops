@@ -47,8 +47,4 @@ resource "azurerm_app_service" "samplejava" {
   location            = "${azurerm_resource_group.java.location}"
   resource_group_name = "${azurerm_resource_group.java.name}"
   app_service_plan_id = "${azurerm_app_service_plan.javaserviceplan.id}"
-  https_only            = true
-  site_config {
-    minimum_tls_version = "1.2"
-  }
 }
