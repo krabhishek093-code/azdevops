@@ -8,9 +8,15 @@ terraform {
   required_providers {
     azurerm = {
       source  = "hashicorp/azurerm"
-      version = "=2.46.0"
+      version = "~>3.0"
     }
   }
+  backend "azurerm" {
+    resource_group_name = "azuretraining"
+    storage_account_name = "tfstate2507"
+    container_name = "tfstate"
+    key = "state.tfstate"
+ }
 }
 
 provider "azurerm" {
@@ -18,7 +24,7 @@ provider "azurerm" {
 }
 
 resource "azurerm_resource_group" "java" {
-  name     = "azuretraining"
+  name     = "azdevops"
   location = "East US"
 }
 
@@ -27,12 +33,8 @@ resource "azurerm_app_service_plan" "javaserviceplan" {
   name                = "java-appserviceplan"
   location            = "${azurerm_resource_group.java.location}"
   resource_group_name = "${azurerm_resource_group.java.name}"
-  kind                = "Linux"
-  reserved            = true
-  sku {
-    tier = "Basic"
-    size = "B1"
-  }
+  os_type             = "Linux"
+  sku_name            = "B1"
 }
 
 
@@ -42,11 +44,8 @@ resource "azurerm_app_service" "samplejava" {
   location            = "${azurerm_resource_group.java.location}"
   resource_group_name = "${azurerm_resource_group.java.name}"
   app_service_plan_id = "${azurerm_app_service_plan.javaserviceplan.id}"
-
+  https_only            = true
   site_config {
-    java_container = "JAVA"
-    java_container_version ="11"
-    use_32_bit_worker_process = false
-
+    minimum_tls_version = "1.2"
   }
 }
