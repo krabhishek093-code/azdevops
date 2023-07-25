@@ -33,8 +33,12 @@ resource "azurerm_app_service_plan" "javaserviceplan" {
   name                = "java-appserviceplan"
   location            = "${azurerm_resource_group.java.location}"
   resource_group_name = "${azurerm_resource_group.java.name}"
-  os_type             = "Linux"
-  sku_name            = "B1"
+  kind                = "Linux"
+  reserved            = true
+  sku {
+    tier = "Basic"
+    size = "B1"
+  }
 }
 
 
